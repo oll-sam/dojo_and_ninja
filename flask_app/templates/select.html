@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Users</title>
+</head>
+<body>
+    <h1>{{dojo_ninja.location}}'s Ninjas</h1>
+    <div id="container">
+        <table>
+            <thead>
+                <tr>
+                    <th> First name</th>
+                    <th> Last Name</th>
+                    <th> Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in dojo_ninja.ninjas %}
+                <tr>
+                    <td>{{d.first_name}}</td>
+                    <td>{{d.last_name}}</td>
+                    <td>{{d.age}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table><br><br>
+        <a href="/">Home</a> 
+    </div>
+</body>

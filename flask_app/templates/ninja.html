@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Ninjas</title>
+</head>
+<body>
+    <h1>New Ninja</h1>
+        <div id="cont">
+            <form method="POST" action="/create_new">
+                <label for="location">Location:</label><br>
+                <select name="ninja_dojo" id="ninja_dojo">
+                    {% for d in dojos %}
+                    <option value={{d.iddojos}}>{{d.location}}</option>
+                    {% endfor %}
+                </select><br><br>
+                <label for="first">First Name:</label><br>
+                <input id="first" type="text" name="first_name"><br><br>
+                <label for="last">Last Name:</label><br>
+                <input id="last" type="text" name="last_name" ><br><br>
+                <label for="age">Age:</label><br>
+                <input id="age" type="number" name="age"><br><br>
+                <input  type="submit" value="Create">
+            </form><br>
+            <a href="/">Home</a>
+        </div>
+</body>
+</html>

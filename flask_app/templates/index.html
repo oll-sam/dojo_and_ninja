@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Dojos And Ninjas</title>
+</head>
+<body>
+    <div id="cont1">
+        <h1>New Dojos</h1>
+        <form  action="/dojos" method="POST">
+            <label for="location">Location:</label><br>
+            <input id="location" type="text" name="location"><br><br>
+            <input  type="submit" value="Create">
+        </form>
+    </div>
+    <div id="cont2">
+        <h1>All Dojos</h1>
+        <ul>
+            {% for d in dojos %}
+            <li><a href="/select/{{d.iddojos}}">{{d.location}}</li>
+            {% endfor %}
+        </ul><br><br>
+        <a href="/new"> New Ninja Sign Up</a>
+    </div>
+</body>
+</html>
